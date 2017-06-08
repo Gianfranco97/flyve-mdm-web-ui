@@ -1,6 +1,8 @@
 import * as React from 'react'
 import ReactWinJS = require ('react-winjs')
 
+import './ContactBook.css'
+
 import HeaderContactBook from './HeaderContactBook'
 import BodyContactBook from './BodyContactBook'
 

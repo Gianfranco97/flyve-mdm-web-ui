@@ -18,7 +18,7 @@ function mapDispatchToProps(dispatch) {
   return { actions }
 }
 
-class HeaderContactBook extends React.Component<any, object> {
+class HeaderContactBook extends React.Component<any, any> {
 
     render () {        
         console.log('-----------------------------------')

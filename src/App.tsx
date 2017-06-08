@@ -3,11 +3,7 @@ import ContactBook from './ContactBook'
 import './App.css'
 
 function App() {
-  return (
-    <div className="App">
-      <ContactBook />
-    </div>
-  )
+  return <ContactBook />
 }
 
 export default App
