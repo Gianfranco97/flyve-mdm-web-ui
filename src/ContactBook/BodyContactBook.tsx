@@ -75,7 +75,7 @@ class BodyContactBook extends React.Component<any, any> {
                 style={{height: "calc(100% - 48px)"}}
                 contentComponent={contentComponent}
                 paneOpened={this.props.paneOpened}
-                onAfterClose={this.props.actions.handleAfterClose}
+                onAfterClose={this.props.actions.closePane}
             />
         )
     }

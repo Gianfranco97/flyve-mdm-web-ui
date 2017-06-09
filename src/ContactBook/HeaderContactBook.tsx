@@ -19,11 +19,7 @@ function mapDispatchToProps(dispatch) {
 }
 
 class HeaderContactBook extends React.Component<any, any> {
-
-    render () {        
-        console.log('-----------------------------------')
-        console.log(this.props.paneOpened)
-        console.log('-----------------------------------')
+    render () {
         return (
             <div style={{height: 48, backgroundColor: 'rgb(1, 121, 216)'}} className="win-ui-dark">
                 <ReactWinJS.SplitViewPaneToggle
