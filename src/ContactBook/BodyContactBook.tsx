@@ -26,7 +26,6 @@ class BodyContactBook extends React.Component<any, any> {
         this.state = {
             content: 'People'
         }
-
     }
 
     handleChangeContent (newContent) {
@@ -39,31 +38,31 @@ class BodyContactBook extends React.Component<any, any> {
 
     render () {   
         
-        let contentComponent =  <h2 className="win-h2" style={{marginLeft: "10px"}}> {this.state.content} </h2>
+        let contentComponent =  <h2 className="win-h2" style={{marginLeft: '10px'}}> {this.state.content} </h2>
 
         let pane = (
             <div>
                 <ReactWinJS.SplitView.Command
                     label="People"
                     icon="contact"
-                    onInvoked={() => this.handleChangeContent("People")}
+                    onInvoked={() => this.handleChangeContent('People')}
                 />
                 <ReactWinJS.SplitView.Command
                     label="What's New"
                     icon="comment"
-                    onInvoked={() => this.handleChangeContent("What's New")}
+                    onInvoked={() => this.handleChangeContent('What\'s New')}
                 />
                 <ReactWinJS.SplitView.Command
                     label="Groups"
                     icon="people"
-                    onInvoked={() => this.handleChangeContent("Groups")}
+                    onInvoked={() => this.handleChangeContent('Groups')}
                 />
 
                 <ReactWinJS.SplitView.Command
                     label="Settings"
                     icon="settings"
-                    style={{position: "absolute", bottom: 0, width: "100%"}}
-                    onInvoked={() => this.handleChangeContent("Settings")}
+                    style={{position: 'absolute', bottom: 0, width: '100%'}}
+                    onInvoked={() => this.handleChangeContent('Settings')}
                 />
             </div>
         )
@@ -72,7 +71,7 @@ class BodyContactBook extends React.Component<any, any> {
             <ReactWinJS.SplitView
                 id={this.props.splitViewId}
                 paneComponent={pane}
-                style={{height: "calc(100% - 48px)"}}
+                style={{height: 'calc(100% - 48px)'}}
                 contentComponent={contentComponent}
                 paneOpened={this.props.paneOpened}
                 onAfterClose={this.props.actions.closePane}
