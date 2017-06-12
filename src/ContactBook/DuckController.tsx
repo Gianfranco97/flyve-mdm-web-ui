@@ -3,13 +3,15 @@ import GetMode from '../Utils/GetMode'
 const INITIAL_STATE = {
     splitViewId: 'rootSplitView',
     paneOpened: false,
-    mode: GetMode()
+    mode: GetMode(),
+    location: ['people']
 }
 
 // Constants
 const HANDLE_TOGGLE_PANE = 'flyve-mdm-web-ui/ContactBook/handleTogglePane'
 const CLOSE_PANE = 'flyve-mdm-web-ui/ContactBook/closePane'
 const CHANGE_MODE = 'flyve-mdm-web-ui/ContactBook/changeMode'
+const CHANGE_LOCATION = 'flyve-mdm-web-ui/ContactBook/changeLocation'
 
 // Reducers
 export default function reducer(state = INITIAL_STATE, action) {
@@ -32,6 +34,12 @@ export default function reducer(state = INITIAL_STATE, action) {
                ...state,
                mode: action.nexMode
             }
+        
+        case CHANGE_LOCATION:
+            return {
+               ...state,
+               location: action.newLocation
+            }
 
         default: return state
     }
@@ -52,5 +60,11 @@ export function changeMode (nexMode) {
   return { 
       type: CHANGE_MODE,
       nexMode
+    }
+}
+export function changeLocation (newLocation) {
+  return { 
+      type: CHANGE_LOCATION,
+      newLocation
     }
 }

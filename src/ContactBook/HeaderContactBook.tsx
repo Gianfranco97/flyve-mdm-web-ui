@@ -2,21 +2,24 @@ import * as React from 'react'
 import ReactWinJS = require ('react-winjs') 
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { handleTogglePane, changeMode } from './DuckController'
+import { handleTogglePane, changeMode, changeLocation } from './DuckController'
 import GetMode from '../Utils/GetMode'
 
 function mapStateToProps(state, props) {
   return {
     splitViewId: state.ContactBook.splitViewId,
     paneOpened: state.ContactBook.paneOpened,
-    mode: state.ContactBook.mode
+    mode: state.ContactBook.mode,
+    location: state.ContactBook.location
   }
 }
 
 function mapDispatchToProps(dispatch) {
   const actions = {
     handleTogglePane: bindActionCreators(handleTogglePane, dispatch),
-    changeMode: bindActionCreators(changeMode, dispatch)
+    changeMode: bindActionCreators(changeMode, dispatch),
+    changeLocation: bindActionCreators(changeLocation, dispatch)
+
   }
   return { actions }
 }
@@ -40,8 +43,15 @@ class HeaderContactBook extends React.Component<any, any> {
         window.removeEventListener("resize", this.handleResize);
     }
 
+    // renderBackButton () {
+    //     var canGoBack = this.state.location.length > 1
+    //     var shouldShowBackButton = canGoBack && this.state.mode === "small"
+    //     return shouldShowBackButton ?
+    //         <button style={{display: "inline-block"}} className="win-backbutton" onClick={this.handleBack} /> :
+    //         null
+    // }
+
     render () {
-      console.log(this.props.mode)
         return (
             <div style={{height: 48, backgroundColor: 'rgb(1, 121, 216)'}} className="win-ui-dark">
                 <ReactWinJS.SplitViewPaneToggle
@@ -50,6 +60,7 @@ class HeaderContactBook extends React.Component<any, any> {
                     onInvoked={this.props.actions.handleTogglePane}
                     paneOpened={this.props.paneOpened}
                 />
+                {/*{this.renderBackButton()}*/}
                 <h3 className="win-h3" style={{display: 'inline-block', marginLeft: 5}}>Address Book </h3>
             </div>
         )

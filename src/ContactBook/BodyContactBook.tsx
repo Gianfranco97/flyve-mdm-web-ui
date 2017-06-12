@@ -2,67 +2,59 @@ import * as React from 'react'
 import ReactWinJS = require ('react-winjs') 
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { closePane } from './DuckController'
+import { closePane, changeLocation } from './DuckController'
 import Data from './FakeData'
 
 function mapStateToProps(state, props) {
   return {
     splitViewId: state.ContactBook.splitViewId,
-    paneOpened: state.ContactBook.paneOpened
+    paneOpened: state.ContactBook.paneOpened,
+    location: state.ContactBook.location
   }
 }
 
 function mapDispatchToProps(dispatch) {
   const actions = {
-    closePane: bindActionCreators(closePane, dispatch)
+    closePane: bindActionCreators(closePane, dispatch),
+    changeLocation: bindActionCreators(changeLocation, dispatch)
   }
   return { actions }
 }
 
 class BodyContactBook extends React.Component<any, any> {
     
-    constructor(props) {
-        super(props)
-        this.state = {
-            content: 'People'
-        }
-    }
-
-    handleChangeContent (newContent) {
-        this.setState({
-            content: newContent
-        }, () => {
-            this.props.actions.closePane()
-        })
+    handleCommandInvoked (newLocation) {
+        this.props.actions.changeLocation(newLocation)
+        this.props.actions.closePane()
     }
 
     render () {   
         
-        let contentComponent =  <h2 className="win-h2" style={{marginLeft: '10px'}}> {this.state.content} </h2>
+        let contentComponent =  <h2 className="win-h2" style={{marginLeft: '10px'}}> {this.props.location} </h2>
 
         let pane = (
             <div>
                 <ReactWinJS.SplitView.Command
                     label="People"
                     icon="contact"
-                    onInvoked={() => this.handleChangeContent('People')}
+                    onInvoked={() => this.handleCommandInvoked(['People'])}
                 />
                 <ReactWinJS.SplitView.Command
                     label="What's New"
                     icon="comment"
-                    onInvoked={() => this.handleChangeContent('What\'s New')}
+                    onInvoked={() => this.handleCommandInvoked(['What\'s New'])}
                 />
                 <ReactWinJS.SplitView.Command
                     label="Groups"
                     icon="people"
-                    onInvoked={() => this.handleChangeContent('Groups')}
+                    onInvoked={() => this.handleCommandInvoked(['Groups'])}
                 />
 
                 <ReactWinJS.SplitView.Command
                     label="Settings"
                     icon="settings"
                     style={{position: 'absolute', bottom: 0, width: '100%'}}
-                    onInvoked={() => this.handleChangeContent('Settings')}
+                    onInvoked={() => this.handleCommandInvoked(['Settings'])}
                 />
             </div>
         )
