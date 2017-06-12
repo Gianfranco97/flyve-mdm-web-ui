@@ -9,7 +9,9 @@ function mapStateToProps(state, props) {
   return {
     splitViewId: state.ContactBook.splitViewId,
     paneOpened: state.ContactBook.paneOpened,
-    location: state.ContactBook.location
+    location: state.ContactBook.location,
+    splitViewConfigs: state.ContactBook.splitViewConfigs,
+    mode: state.ContactBook.mode
   }
 }
 
@@ -67,6 +69,7 @@ class BodyContactBook extends React.Component<any, any> {
                 contentComponent={contentComponent}
                 paneOpened={this.props.paneOpened}
                 onAfterClose={this.props.actions.closePane}
+                {...this.props.splitViewConfigs[this.props.mode]} 
             />
         )
     }

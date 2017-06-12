@@ -4,7 +4,21 @@ const INITIAL_STATE = {
     splitViewId: 'rootSplitView',
     paneOpened: false,
     mode: GetMode(),
-    location: ['people', 'hey']
+    location: ['People'],
+    splitViewConfigs: {
+        small: {
+            closedDisplayMode: 'none',
+            openedDisplayMode: 'overlay'
+        },
+        medium: {
+            closedDisplayMode: 'inline',
+            openedDisplayMode: 'overlay'
+        },
+        large: {
+            closedDisplayMode: 'inline',
+            openedDisplayMode: 'inline'
+        }
+    }
 }
 
 // Constants

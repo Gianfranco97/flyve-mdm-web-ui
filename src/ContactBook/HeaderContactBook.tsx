@@ -36,18 +36,18 @@ class HeaderContactBook extends React.Component<any, any> {
     }
 
     componentWillMount () {
-        window.addEventListener('resize', this.handleResize);
+        window.addEventListener('resize', this.handleResize)
     }
 
     componentWillUnmount () {
-        window.removeEventListener('resize', this.handleResize);
+        window.removeEventListener('resize', this.handleResize)
     }
 
     renderBackButton () {
         var canGoBack = this.props.location.length > 1
-        var shouldShowBackButton = canGoBack && this.props.mode === "small"
+        var shouldShowBackButton = canGoBack && this.props.mode === 'small'
         return shouldShowBackButton ?
-            <button style={{display: "inline-block"}} className="win-backbutton" onClick={this.props.actions.handleBack} /> :
+            <button style={{display: 'inline-block'}} className="win-backbutton" onClick={this.props.actions.handleBack} /> :
             null
     }
 

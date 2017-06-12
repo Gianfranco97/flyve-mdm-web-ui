@@ -15,4 +15,4 @@ ReactDOM.render(
     <App />
   </Provider>,
   document.getElementById('app') as HTMLElement
-);
+)
