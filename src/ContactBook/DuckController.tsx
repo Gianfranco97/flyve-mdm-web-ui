@@ -4,7 +4,7 @@ const INITIAL_STATE = {
     splitViewId: 'rootSplitView',
     paneOpened: false,
     mode: GetMode(),
-    location: ['people']
+    location: ['people', 'hey']
 }
 
 // Constants
@@ -12,6 +12,7 @@ const HANDLE_TOGGLE_PANE = 'flyve-mdm-web-ui/ContactBook/handleTogglePane'
 const CLOSE_PANE = 'flyve-mdm-web-ui/ContactBook/closePane'
 const CHANGE_MODE = 'flyve-mdm-web-ui/ContactBook/changeMode'
 const CHANGE_LOCATION = 'flyve-mdm-web-ui/ContactBook/changeLocation'
+const HANDLE_BACK = 'flyve-mdm-web-ui/ContactBook/handleBack'
 
 // Reducers
 export default function reducer(state = INITIAL_STATE, action) {
@@ -41,6 +42,12 @@ export default function reducer(state = INITIAL_STATE, action) {
                location: action.newLocation
             }
 
+        case HANDLE_BACK:
+            return {
+               ...state.location,
+               location: [...state.location.slice(0, state.location.length), ...state.location.slice(state.location.length + 1)]
+            }
+
         default: return state
     }
 }
@@ -66,5 +73,10 @@ export function changeLocation (newLocation) {
   return { 
       type: CHANGE_LOCATION,
       newLocation
+    }
+}
+export function handleBack () {
+  return { 
+      type: HANDLE_BACK
     }
 }

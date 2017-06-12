@@ -2,7 +2,7 @@ import * as React from 'react'
 import ReactWinJS = require ('react-winjs') 
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { handleTogglePane, changeMode, changeLocation } from './DuckController'
+import { handleTogglePane, changeMode, changeLocation, handleBack } from './DuckController'
 import GetMode from '../Utils/GetMode'
 
 function mapStateToProps(state, props) {
@@ -18,8 +18,8 @@ function mapDispatchToProps(dispatch) {
   const actions = {
     handleTogglePane: bindActionCreators(handleTogglePane, dispatch),
     changeMode: bindActionCreators(changeMode, dispatch),
-    changeLocation: bindActionCreators(changeLocation, dispatch)
-
+    changeLocation: bindActionCreators(changeLocation, dispatch),
+    handleBack: bindActionCreators(handleBack, dispatch)
   }
   return { actions }
 }
@@ -36,20 +36,20 @@ class HeaderContactBook extends React.Component<any, any> {
     }
 
     componentWillMount () {
-        window.addEventListener("resize", this.handleResize);
+        window.addEventListener('resize', this.handleResize);
     }
 
     componentWillUnmount () {
-        window.removeEventListener("resize", this.handleResize);
+        window.removeEventListener('resize', this.handleResize);
     }
 
-    // renderBackButton () {
-    //     var canGoBack = this.state.location.length > 1
-    //     var shouldShowBackButton = canGoBack && this.state.mode === "small"
-    //     return shouldShowBackButton ?
-    //         <button style={{display: "inline-block"}} className="win-backbutton" onClick={this.handleBack} /> :
-    //         null
-    // }
+    renderBackButton () {
+        var canGoBack = this.props.location.length > 1
+        var shouldShowBackButton = canGoBack && this.props.mode === "small"
+        return shouldShowBackButton ?
+            <button style={{display: "inline-block"}} className="win-backbutton" onClick={this.props.actions.handleBack} /> :
+            null
+    }
 
     render () {
         return (
@@ -60,7 +60,7 @@ class HeaderContactBook extends React.Component<any, any> {
                     onInvoked={this.props.actions.handleTogglePane}
                     paneOpened={this.props.paneOpened}
                 />
-                {/*{this.renderBackButton()}*/}
+                {this.renderBackButton()}
                 <h3 className="win-h3" style={{display: 'inline-block', marginLeft: 5}}>Address Book </h3>
             </div>
         )
