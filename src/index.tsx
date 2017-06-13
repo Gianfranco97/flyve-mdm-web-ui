@@ -6,7 +6,6 @@ import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 
 import Reducers from './reducers'
-// import InitialState from './initialState'
 
 const store = createStore(Reducers)
 

@@ -3,7 +3,7 @@ import ReactWinJS = require ('react-winjs')
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { closePane, changeLocation } from './DuckController'
-import Data from './FakeData'
+import PeoplePage from './PeoplePage'
 
 function mapStateToProps(state, props) {
   return {
@@ -11,7 +11,8 @@ function mapStateToProps(state, props) {
     paneOpened: state.ContactBook.paneOpened,
     location: state.ContactBook.location,
     splitViewConfigs: state.ContactBook.splitViewConfigs,
-    mode: state.ContactBook.mode
+    mode: state.ContactBook.mode,
+    people: state.ContactBook.people
   }
 }
 
@@ -31,8 +32,12 @@ class BodyContactBook extends React.Component<any, any> {
     }
 
     render () {   
-        
-        let contentComponent =  <h2 className="win-h2" style={{marginLeft: '10px'}}> {this.props.location} </h2>
+        let contentComponent
+         if (this.props.location[0] === 'People') {
+            contentComponent = <PeoplePage location={this.props.location}  people={this.props.people} />
+        } else {
+            contentComponent = <h2 className="win-h2" style={{marginLeft: '10px'}}> {this.props.location} </h2>
+        }
 
         let pane = (
             <div>

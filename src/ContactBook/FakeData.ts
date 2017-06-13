@@ -52,7 +52,7 @@ function genArray( minLength: number, maxLength: number, genElement: any ) {
     let len = randomInt(minLength, maxLength)
     var result = new Array(len)
     for (let i = 0; i < len; i++) {
-        result[i] = genElement();
+        result[i] = genElement()
     }
     return result
 }

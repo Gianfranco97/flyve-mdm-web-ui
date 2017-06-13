@@ -1,4 +1,5 @@
 import GetMode from '../Utils/GetMode'
+import InitialPeople from './InitialPeople'
 
 const INITIAL_STATE = {
     splitViewId: 'rootSplitView',
@@ -18,7 +19,8 @@ const INITIAL_STATE = {
             closedDisplayMode: 'inline',
             openedDisplayMode: 'inline'
         }
-    }
+    },
+    people: InitialPeople()
 }
 
 // Constants
