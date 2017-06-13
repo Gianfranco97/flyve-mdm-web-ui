@@ -1,3 +1,3 @@
-export default function (url) {
-    return "url(" + url + ")"
+export default function (url: string) {
+    return 'url(' + url + ')'
 }

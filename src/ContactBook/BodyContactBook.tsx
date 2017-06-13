@@ -33,8 +33,8 @@ class BodyContactBook extends React.Component<any, any> {
 
     render () {   
         let contentComponent
-         if (this.props.location[0] === 'People') {
-            contentComponent = <PeoplePage location={this.props.location}  people={this.props.people} />
+         if (this.props.location[0] === 'people') {
+            contentComponent = <PeoplePage location={this.props.location}  people={this.props.people} onNavigate={this.props.actions.changeLocation} />
         } else {
             contentComponent = <h2 className="win-h2" style={{marginLeft: '10px'}}> {this.props.location} </h2>
         }
@@ -44,7 +44,7 @@ class BodyContactBook extends React.Component<any, any> {
                 <ReactWinJS.SplitView.Command
                     label="People"
                     icon="contact"
-                    onInvoked={() => this.handleCommandInvoked(['People'])}
+                    onInvoked={() => this.handleCommandInvoked(['people'])}
                 />
                 <ReactWinJS.SplitView.Command
                     label="What's New"

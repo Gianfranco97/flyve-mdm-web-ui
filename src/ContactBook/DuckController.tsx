@@ -5,7 +5,7 @@ const INITIAL_STATE = {
     splitViewId: 'rootSplitView',
     paneOpened: false,
     mode: GetMode(),
-    location: ['People'],
+    location: ['people'],
     splitViewConfigs: {
         small: {
             closedDisplayMode: 'none',
