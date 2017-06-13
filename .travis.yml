@@ -3,4 +3,5 @@ node_js:
   - 6
   - 7
 script:
-  - npm run build
+  - yarn install
+  - yarn run build
