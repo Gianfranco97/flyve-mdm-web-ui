@@ -71,6 +71,7 @@ export default class PeoplePage extends React.Component<any, any> {
             <ReactWinJS.ToolBar.Button
                 key="delete"
                 icon="delete"
+                label="delete"
                 priority={0}
                 disabled={this.state.selectedPeople.length === 0}
                 onClick={this.handleDelete}
