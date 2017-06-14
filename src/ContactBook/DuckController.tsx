@@ -60,8 +60,8 @@ export default function reducer(state = INITIAL_STATE, action) {
 
         case HANDLE_BACK:
             return {
-               ...state.location,
-               location: [...state.location.slice(0, state.location.length), ...state.location.slice(state.location.length + 1)]
+               ...state,
+               location: [...state.location.slice(0, 1)]
             }
 
         default: return state

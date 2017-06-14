@@ -44,8 +44,18 @@ export default class PeoplePage extends React.Component<any, any> {
         this.setState({ selectedPeople: indices })
         this.props.onNavigate(indices.length === 1 && !this.state.selectionMode ? ["people", indices[0]] : ["people"])
     }
+
+    handleContentAnimating (eventObject) {
+        // Disable ListView's entrance animation
+        if (eventObject.detail.type === "entrance") {
+            eventObject.preventDefault();
+        }
+    }
     
     renderPeoplePane (peoplePaneWidth) {
+
+        // console.log(this.props)
+
         var deleteCommand = (
             <ReactWinJS.ToolBar.Button
                 key="delete"
@@ -114,6 +124,7 @@ export default class PeoplePage extends React.Component<any, any> {
                     selectionMode={this.state.selectionMode ? 'multi' : 'single'}
                     tapBehavior={this.state.selectionMode ? 'toggleSelect' : 'directSelect'}
                     onSelectionChanged={this.handleSelectionChanged}
+                    onContentAnimating={this.handleContentAnimating}
                 />
             </div>
         )

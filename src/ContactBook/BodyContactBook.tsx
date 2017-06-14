@@ -31,7 +31,7 @@ class BodyContactBook extends React.Component<any, any> {
         this.props.actions.closePane()
     }
 
-    render () {   
+    render () {
         let contentComponent
          if (this.props.location[0] === 'people') {
             contentComponent = <PeoplePage mode={this.props.mode} location={this.props.location}  people={this.props.people} onNavigate={this.props.actions.changeLocation} />
