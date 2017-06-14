@@ -3,5 +3,5 @@ node_js:
   - 6
   - 7
 script:
-  - yarn install
+  # - yarn install
   - yarn run build

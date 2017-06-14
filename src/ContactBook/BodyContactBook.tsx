@@ -2,7 +2,7 @@ import * as React from 'react'
 import ReactWinJS = require ('react-winjs') 
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { closePane, changeLocation } from './DuckController'
+import { closePane, changeLocation, changePeople } from './DuckController'
 import PeoplePage from './PeoplePage'
 
 function mapStateToProps(state, props) {
@@ -34,7 +34,7 @@ class BodyContactBook extends React.Component<any, any> {
     render () {
         let contentComponent
          if (this.props.location[0] === 'people') {
-            contentComponent = <PeoplePage mode={this.props.mode} location={this.props.location}  people={this.props.people} onNavigate={this.props.actions.changeLocation} />
+            contentComponent = <PeoplePage mode={this.props.mode} location={this.props.location} people={this.props.people} onNavigate={this.props.actions.changeLocation} changePeople={this.props.actions.changePeople} />
         } else {
             contentComponent = <h2 className="win-h2" style={{marginLeft: '10px'}}> {this.props.location} </h2>
         }

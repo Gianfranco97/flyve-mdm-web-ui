@@ -2,7 +2,7 @@ import * as React from 'react'
 import ReactWinJS = require ('react-winjs') 
 import Calc100PercentMinus from '../Utils/Calc100PercentMinus'
 import ProfilePicture from './ProfilePicture'
-var WinJS = require('winjs')
+let WinJS = require('winjs')
 
 export default class PeoplePage extends React.Component<any, any> {
 
@@ -31,37 +31,49 @@ export default class PeoplePage extends React.Component<any, any> {
     })
 
     handleToggleSelectionMode =  () => {
-        this.setState({
-            selectionMode: !this.state.selectionMode
-        })
-        // this.props.onNavigate(["people"]);
-        // this.refs.listView.winControl.selection.clear();
+        this.setState({selectionMode: !this.state.selectionMode})
+        this.props.onNavigate(["people"])
+        // this.refs.listView.winControl.selection.clear()
     }
 
     handleSelectionChanged = (eventObject) => {
-        var listView = eventObject.currentTarget.winControl
-        var indices = listView.selection.getIndices()
+        let listView = eventObject.currentTarget.winControl
+        let indices = listView.selection.getIndices()
         this.setState({ selectedPeople: indices })
-        this.props.onNavigate(indices.length === 1 && !this.state.selectionMode ? ["people", indices[0]] : ["people"])
+        this.props.onNavigate(indices.length === 1 && !this.state.selectionMode ? ['people', indices[0]] : ['people'])
     }
 
     handleContentAnimating (eventObject) {
         // Disable ListView's entrance animation
-        if (eventObject.detail.type === "entrance") {
-            eventObject.preventDefault();
+        if (eventObject.detail.type === 'entrance') {
+            eventObject.preventDefault()
         }
+    }
+
+    handleDelete = () => {
+        let people = this.props.people
+        let indices = this.state.selectedPeople
+        indices.sort()
+        indices.reverse()
+        indices.forEach(function (i) {
+            people.splice(i, 1)
+        })
+        this.setState({
+            selectedPeople: [],
+            selectionMode: false
+        })
+        this.props.changePeople(people)
     }
     
     renderPeoplePane (peoplePaneWidth) {
 
-        // console.log(this.props)
-
-        var deleteCommand = (
+        let deleteCommand = (
             <ReactWinJS.ToolBar.Button
                 key="delete"
                 icon="delete"
                 priority={0}
                 disabled={this.state.selectedPeople.length === 0}
+                onClick={this.handleDelete}
             />
         )
 
@@ -140,7 +152,7 @@ export default class PeoplePage extends React.Component<any, any> {
                 </div>
             )
         } else {
-            var selectedPerson = this.props.people.getAt(selectedIndex)
+            let selectedPerson = this.props.people.getAt(selectedIndex)
             return (
                 <div className="profilePane" style={{height: '100%', width: Calc100PercentMinus(peoplePaneWidth), display: 'inline-block', verticalAlign: 'top'}}>
                     <div className="profileHeader">
@@ -185,7 +197,7 @@ export default class PeoplePage extends React.Component<any, any> {
     }
 
     render () {
-        var selectedIndex = this.props.location.length >= 2 ? this.props.location[1] : null
+        let selectedIndex = this.props.location.length >= 2 ? this.props.location[1] : null
 
         if (this.props.mode === 'small') {
             if (selectedIndex === null) {
@@ -194,7 +206,7 @@ export default class PeoplePage extends React.Component<any, any> {
                 return this.renderProfilePane(selectedIndex, 0)
             }
         } else {
-            var peoplePaneWidth = 320
+            let peoplePaneWidth = 320
             return (
                 <div style={{height: '100%'}}>
                     {this.renderPeoplePane(peoplePaneWidth)}

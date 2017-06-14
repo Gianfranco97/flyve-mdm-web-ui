@@ -29,6 +29,7 @@ const CLOSE_PANE = 'flyve-mdm-web-ui/ContactBook/closePane'
 const CHANGE_MODE = 'flyve-mdm-web-ui/ContactBook/changeMode'
 const CHANGE_LOCATION = 'flyve-mdm-web-ui/ContactBook/changeLocation'
 const HANDLE_BACK = 'flyve-mdm-web-ui/ContactBook/handleBack'
+const CHANGE_PEOPLE = 'flyve-mdm-web-ui/ContactBook/changePeople'
 
 // Reducers
 export default function reducer(state = INITIAL_STATE, action) {
@@ -63,6 +64,11 @@ export default function reducer(state = INITIAL_STATE, action) {
                ...state,
                location: [...state.location.slice(0, 1)]
             }
+        case CHANGE_PEOPLE:
+            return {
+               ...state,
+               people: action.newPeople
+            }
 
         default: return state
     }
@@ -94,5 +100,11 @@ export function changeLocation (newLocation) {
 export function handleBack () {
   return { 
       type: HANDLE_BACK
+    }
+}
+export function changePeople (newPeople) {
+  return { 
+      type: CHANGE_PEOPLE,
+      newPeople
     }
 }
