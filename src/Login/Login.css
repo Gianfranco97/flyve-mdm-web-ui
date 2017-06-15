@@ -1,0 +1,26 @@
+.win-type-body {
+    background-color: #003533;
+}
+.credentials {
+    position: fixed;
+    bottom: 15px;
+    right: 10px;
+    color: snow;
+}
+.row {
+    background-color: #FFFFFF;
+    margin: 25px auto
+}
+.button-form-login{
+    background-color: #008481;
+}
+.section1{
+    text-align:center;
+}
+.section2{
+    background-color: #F2F2F2;
+    padding: 25px;
+}
+.win-button {
+    margin: 5px;
+}
