@@ -7,7 +7,7 @@
     right: 10px;
     color: snow;
 }
-.row {
+.ms-row {
     background-color: #FFFFFF;
     margin: 25px auto
 }
@@ -22,5 +22,5 @@
     padding: 25px;
 }
 .win-button {
-    margin: 5px;
+    margin: 15px 5px;
 }
