@@ -1,10 +1,7 @@
 import * as React from 'react'
 import Login from './Login'
 import ContactBook from './ContactBook'
-import {
-  BrowserRouter,
-  Route
-} from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import './App.css'
 
 import { Provider } from 'react-redux'
@@ -18,10 +15,10 @@ function App() {
   return (
     <Provider store={store}>
       <BrowserRouter>
-        <div>
+        <Switch>
           <Route exact path="/" component={Login} />
           <Route path="/contactbook" component={ContactBook} />
-        </div>
+        </Switch>
       </BrowserRouter >
     </Provider>
   )

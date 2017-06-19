@@ -18,7 +18,7 @@ export default class ProfilePicture extends React.Component<any, any> {
                     display: 'inline-block'
                 }}
             >
-                <img src="profile.png" height={size} width={size} />
+                <img src="img/profile.png" height={size} width={size} />
             </div>
         )
     }

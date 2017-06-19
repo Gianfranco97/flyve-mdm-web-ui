@@ -1,13 +1,10 @@
-.win-type-body {
-    background-color: #003533;
-}
 .credentials {
     position: fixed;
     bottom: 15px;
     right: 10px;
     color: snow;
 }
-.ms-row {
+#LoginForm .ms-row {
     background-color: #FFFFFF;
     margin: 25px auto
 }

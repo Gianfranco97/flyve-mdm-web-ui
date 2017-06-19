@@ -2,11 +2,17 @@ import * as React from 'react'
 import './Login.css'
 import axios from 'axios'
 import ChangeSessionToken from '../Utils/ChangeSessionToken'
+import { Router } from 'react-router-dom'
 
 export default class Login extends React.Component<any, any> {
     
+    static propTypes = {
+        history: React.PropTypes.object.isRequired
+    }
+
     constructor (props) {
         super(props)
+        document.body.style.backgroundColor="#003533"
         this.state = {
             email: '',
             password: ''
@@ -27,17 +33,17 @@ export default class Login extends React.Component<any, any> {
                 password: this.state.password,
             }
         })
-            .then(function (response) {
+            .then((response) => {
                 console.log(response)
                 ChangeSessionToken(response.data.session_token)
                 axios({
                     method:'get',
                     url:'https://dev.flyve.org/glpi/apirest.php/getActiveProfile/'
                 })
-                    .then(function (response2) {
+                    .then((response2) => {
                         console.log(response2)
                         if (response2.data.active_profile.comment !== 'inactive registered FlyveMDM users. Created by Flyve MDM - do NOT modify this comment.') {
-                            console.log(': D')
+                            this.props.history.push(`/contactbook`)
                         }
                         else console.log(':\' c')
                     })
@@ -53,7 +59,7 @@ export default class Login extends React.Component<any, any> {
     render () {
     
         return (
-            <div className="ms-grid">
+            <div className="ms-grid" id="LoginForm">
                 <div className="ms-row">
                     <div className="m-col-4-12 section1">
                         <img src="img/logo-flyve-login.png" className="img-login"/>
