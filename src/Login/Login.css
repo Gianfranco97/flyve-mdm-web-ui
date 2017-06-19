@@ -15,7 +15,9 @@
     background-color: #008481;
 }
 .section1{
-    text-align:center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .section2{
     background-color: #F2F2F2;

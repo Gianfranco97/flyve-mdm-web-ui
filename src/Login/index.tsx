@@ -1,6 +1,7 @@
 import * as React from 'react'
 import './Login.css'
 import axios from 'axios'
+import ChangeSessionToken from '../Utils/ChangeSessionToken'
 
 export default class Login extends React.Component<any, any> {
     
@@ -28,6 +29,21 @@ export default class Login extends React.Component<any, any> {
         })
             .then(function (response) {
                 console.log(response)
+                ChangeSessionToken(response.data.session_token)
+                axios({
+                    method:'get',
+                    url:'https://dev.flyve.org/glpi/apirest.php/getActiveProfile/'
+                })
+                    .then(function (response2) {
+                        console.log(response2)
+                        if (response2.data.active_profile.comment !== 'inactive registered FlyveMDM users. Created by Flyve MDM - do NOT modify this comment.') {
+                            console.log(': D')
+                        }
+                        else console.log(':\' c')
+                    })
+                    .catch(function (error2) {
+                        console.log(error2)
+                    })
             })
             .catch(function (error) {
                 console.log(error)
