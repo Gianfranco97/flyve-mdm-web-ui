@@ -26,6 +26,11 @@ function mapDispatchToProps(dispatch) {
 
 class HeaderContactBook extends React.Component<any, any> {
 
+    constructor (props) {
+        super(props)
+        document.body.style.backgroundColor="#FFFFFF"
+    }
+
     handleResize = () => {
         let prevMode = this.props.mode
         let nextMode = GetMode()

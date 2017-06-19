@@ -1,6 +1,7 @@
 import * as React from 'react'
 import Login from './Login'
 import ContactBook from './ContactBook'
+import ValidateAccount from './Login/ValidateAccount'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import './App.css'
 
@@ -17,6 +18,7 @@ function App() {
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={Login} />
+          <Route path="/validateaccount" component={ValidateAccount} />
           <Route path="/contactbook" component={ContactBook} />
         </Switch>
       </BrowserRouter >

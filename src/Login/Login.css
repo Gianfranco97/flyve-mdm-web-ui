@@ -5,8 +5,16 @@
     color: snow;
 }
 #LoginForm .ms-row {
-    background-color: #FFFFFF;
     margin: 25px auto
+}
+#ValidateAccount {
+    width: 50%;
+    margin: 25px auto;
+    text-align: center;    
+}
+#ValidateAccount button{
+    color: snow;
+    font-size: 1.2rem;  
 }
 .button-form-login{
     background-color: #008481;
@@ -15,6 +23,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #FFFFFF;
 }
 .section2{
     background-color: #F2F2F2;
@@ -22,4 +31,4 @@
 }
 .win-button {
     margin: 15px 5px;
-}
+}  
