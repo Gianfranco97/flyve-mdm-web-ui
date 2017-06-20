@@ -24,7 +24,9 @@ export default class Login extends React.Component<any, any> {
         this.setState({[input.target.name]: input.target.value})
     }
     
-    SaveInServer = () => {
+    LogInServer = (e) => {
+
+        e.preventDefault()
 
         axios ({
             method: 'get',
@@ -55,7 +57,7 @@ export default class Login extends React.Component<any, any> {
                     </div>
                     <div className="m-col-8-12 section2">
                         <h2>Mobile Device Management</h2>
-                        <form onClick={this.SaveInServer}>
+                        <form onClick={this.LogInServer}>
                             <p>Email</p>
                             <input type="text" name="email" value={this.state.email} onChange={this.ChangeInput} />
                             <p>Password</p>
@@ -66,7 +68,7 @@ export default class Login extends React.Component<any, any> {
                                 onChange={this.ChangeInput} 
                             />
                             <button className="win-button">SIGNUP</button>
-                            <button className="win-button color-accent" type="button" onClick={this.SaveInServer}>
+                            <button className="win-button color-accent">
                                 LOGIN
                             </button>
                         </form>
