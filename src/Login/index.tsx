@@ -11,7 +11,9 @@ export default class Login extends React.Component<any, any> {
 
     constructor (props) {
         super(props)
-        document.body.style.backgroundColor="#003533"
+
+        document.body.className = 'color-accent'
+
         this.state = {
             email: '',
             password: ''
@@ -25,8 +27,8 @@ export default class Login extends React.Component<any, any> {
     SaveInServer = () => {
 
         axios ({
-            method:'get',
-            url:'https://dev.flyve.org/glpi/apirest.php/initSession',
+            method: 'get',
+            url: 'https://dev.flyve.org/glpi/apirest.php/initSession',
             auth: {
                 username: this.state.email,
                 password: this.state.password,
@@ -38,7 +40,7 @@ export default class Login extends React.Component<any, any> {
                 this.props.history.push(`/contactbook`)
                 
             })
-            .catch(function (error) {
+            .catch(function (error: object){
                 console.log(error)
             })
     }
@@ -48,21 +50,30 @@ export default class Login extends React.Component<any, any> {
         return (
             <div className="ms-grid" id="LoginForm">
                 <div className="ms-row">
-                    <div className="m-col-4-12 section1">
+                    <div className="m-col-4-12 section1 color-white">
                         <img src="img/logo-flyve-login.png" className="img-login"/>
                     </div>
                     <div className="m-col-8-12 section2">
                         <h2>Mobile Device Management</h2>
-                        <form>
+                        <form onClick={this.SaveInServer}>
                             <p>Email</p>
-                            <input type='text' name="email" value={this.state.email} onChange={this.ChangeInput} />
+                            <input type="text" name="email" value={this.state.email} onChange={this.ChangeInput} />
                             <p>Password</p>
-                            <input type='password' name="password" value={this.state.password} onChange={this.ChangeInput} />
+                            <input 
+                                type="password" 
+                                name="password" 
+                                value={this.state.password} 
+                                onChange={this.ChangeInput} 
+                            />
+                            <button className="win-button">SIGNUP</button>
+                            <button className="win-button color-accent" type="button" onClick={this.SaveInServer}>
+                                LOGIN
+                            </button>
                         </form>
-                        <span className="credentials" >A solution powered by <img src="img/logo-teclib-blanc-1-2.png" /></span>
-                        <button className="win-button">SIGNUP</button>
-                        <button className="win-button button-form-login" onClick={this.SaveInServer}>LOGIN</button>
                     </div>
+                    <span className="credentials">
+                        A solution powered by &nbsp; <img src="img/logo-teclib-blanc-1-2.png" />
+                    </span>
                 </div>
             </div>
         )

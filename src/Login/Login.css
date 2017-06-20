@@ -2,7 +2,10 @@
     position: fixed;
     bottom: 15px;
     right: 10px;
-    color: snow;
+    color: #ffffff;
+}
+.credentials img {
+    vertical-align:middle;
 }
 #LoginForm .ms-row {
     margin: 25px auto
@@ -16,14 +19,10 @@
     color: snow;
     font-size: 1.2rem;  
 }
-.button-form-login{
-    background-color: #008481;
-}
 .section1{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #FFFFFF;
 }
 .section2{
     background-color: #F2F2F2;

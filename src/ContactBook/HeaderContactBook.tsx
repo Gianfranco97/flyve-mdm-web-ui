@@ -26,11 +26,6 @@ function mapDispatchToProps(dispatch) {
 
 class HeaderContactBook extends React.Component<any, any> {
 
-    constructor (props) {
-        super(props)
-        document.body.style.backgroundColor="#FFFFFF"
-    }
-
     handleResize = () => {
         let prevMode = this.props.mode
         let nextMode = GetMode()
@@ -52,7 +47,11 @@ class HeaderContactBook extends React.Component<any, any> {
         var canGoBack = this.props.location.length > 1
         var shouldShowBackButton = canGoBack && this.props.mode === 'small'
         return shouldShowBackButton ?
-            <button style={{display: 'inline-block'}} className="win-backbutton" onClick={this.props.actions.handleBack} /> :
+            <button 
+                style={{display: 'inline-block'}} 
+                className="win-backbutton" 
+                onClick={this.props.actions.handleBack} 
+            /> : 
             null
     }
 

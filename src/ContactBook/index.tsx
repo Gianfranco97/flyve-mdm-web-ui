@@ -12,8 +12,10 @@ export default class App extends React.Component<null, object> {
         history: React.PropTypes.object.isRequired
     }
 
-    componentWillMount = () => {
+    constructor (props) {
+        super(props)
         VerifyAccountActivation(this)
+        document.body.className = 'color-white'
     }
 
     render () {
