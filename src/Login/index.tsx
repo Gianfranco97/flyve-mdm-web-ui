@@ -39,7 +39,6 @@ export default class Login extends React.Component<any, any> {
         })
             .then((response) => {
                 ChangeSessionToken(response.data.session_token)
-                VerifyAccountActivation(this)
                 this.props.history.push(`/contactbook`)
             })
             .catch(function (error: object){

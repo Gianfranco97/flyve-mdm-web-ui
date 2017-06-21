@@ -3,12 +3,8 @@ import './Login.css'
 import axios from 'axios'
 import ChangeSessionToken from '../Utils/ChangeSessionToken'
 
-export default class ValidateAccount extends React.Component<any, null> {
+export default class ValidateAccount extends React.Component<any, any> {
     
-    static propTypes = {
-        history: React.PropTypes.object.isRequired
-    }
-
     constructor (props) {
         super(props)
         document.body.className = 'color-accent'

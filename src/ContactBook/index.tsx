@@ -5,6 +5,7 @@ import './ContactBook.css'
 
 import HeaderContactBook from './HeaderContactBook'
 import BodyContactBook from './BodyContactBook'
+import ValidateAccount from '../Login/ValidateAccount'
 
 export default class App extends React.Component<any, any> {
 
@@ -14,19 +15,19 @@ export default class App extends React.Component<any, any> {
 
     constructor (props) {
         super(props)
-        VerifyAccountActivation(this)
         document.body.className = 'color-white'
-        this.state = {
-            history: props.history
-        }
     }
 
     render () {
-        return (
-            <div style={{height: '100%'}}>
-                <HeaderContactBook />
-                <BodyContactBook history={this.props.history}/>
-            </div>
-        )
+        if (VerifyAccountActivation()) {
+           return (
+                <div style={{height: '100%'}}>
+                    <HeaderContactBook />
+                    <BodyContactBook />
+                </div>
+            ) 
+        } else {
+            return <ValidateAccount history={this.props.history}/> 
+        }
     }
 }
