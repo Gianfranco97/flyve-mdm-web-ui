@@ -6,7 +6,7 @@ import './ContactBook.css'
 import HeaderContactBook from './HeaderContactBook'
 import BodyContactBook from './BodyContactBook'
 
-export default class App extends React.Component<null, object> {
+export default class App extends React.Component<any, any> {
 
     static propTypes = {
         history: React.PropTypes.object.isRequired
@@ -16,13 +16,16 @@ export default class App extends React.Component<null, object> {
         super(props)
         VerifyAccountActivation(this)
         document.body.className = 'color-white'
+        this.state = {
+            history: props.history
+        }
     }
 
     render () {
         return (
             <div style={{height: '100%'}}>
                 <HeaderContactBook />
-                <BodyContactBook />
+                <BodyContactBook history={this.props.history}/>
             </div>
         )
     }

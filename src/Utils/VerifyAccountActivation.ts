@@ -8,10 +8,9 @@ export default (obj) => {
     })
         .then((response) => {
             console.log(response)
-            if (response.data.active_profile.comment !== 'inactive registered FlyveMDM users. Created by Flyve MDM - do NOT modify this comment.') {
-                
+            if (response.data.active_profile.comment !== 'registered Flyve MDM users. Created by Flyve MDM - do NOT modify this comment.') {
+                obj.props.history.push(`/validateaccount`)
             }
-            else obj.props.history.push(`/validateaccount`)
         })
         .catch(function (error: object) {
             console.log(error)

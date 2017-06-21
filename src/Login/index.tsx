@@ -2,6 +2,7 @@ import * as React from 'react'
 import './Login.css'
 import axios from 'axios'
 import ChangeSessionToken from '../Utils/ChangeSessionToken'
+import VerifyAccountActivation from '../Utils/VerifyAccountActivation'
 
 export default class Login extends React.Component<any, any> {
     
@@ -37,10 +38,9 @@ export default class Login extends React.Component<any, any> {
             }
         })
             .then((response) => {
-
                 ChangeSessionToken(response.data.session_token)
+                VerifyAccountActivation(this)
                 this.props.history.push(`/contactbook`)
-                
             })
             .catch(function (error: object){
                 console.log(error)
@@ -72,10 +72,11 @@ export default class Login extends React.Component<any, any> {
                                 LOGIN
                             </button>
                         </form>
+                        <span className="credentials">
+                            A solution powered by &nbsp; <img src="img/logo-teclib-blanc-1-2.png" />
+                        </span> 
                     </div>
-                    <span className="credentials">
-                        A solution powered by &nbsp; <img src="img/logo-teclib-blanc-1-2.png" />
-                    </span>
+                    
                 </div>
             </div>
         )
