@@ -19,6 +19,7 @@ export default class App extends React.Component<any, any> {
     }
 
     render () {
+        console.log(VerifyAccountActivation())
         if (VerifyAccountActivation()) {
            return (
                 <div style={{height: '100%'}}>
