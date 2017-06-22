@@ -1,20 +1,21 @@
 import axios from 'axios'
+const ACTIVE = 'registered Flyve MDM users. Created by Flyve MDM - do NOT modify this comment.'
 
-export default () => {
+export default (history, location?) => {
     axios({
         method: 'get',
         url: 'https://dev.flyve.org/glpi/apirest.php/getActiveProfile/'
     })
         .then((response) => {
-            console.log(response.data.active_profile.comment)
-            if (response.data.active_profile.comment !== 'registered Flyve MDM users. Created by Flyve MDM - do NOT modify this comment.') {
-                return false
+            if (response.data.active_profile.comment !== ACTIVE) {
+                history.push('/validateaccount')
             } else {
-                return true
+                if (location) {
+                    history.push(`/${location}`)
+                }
             }
         })
         .catch(function (error: object) {
-            console.log(error)
-            return true
+            history.push('/')
         })
 }

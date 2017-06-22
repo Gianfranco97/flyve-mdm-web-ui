@@ -19,6 +19,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Login} />
           <Route path="/contactbook" component={ContactBook} />
+          <Route path="/validateaccount" component={ValidateAccount} />
         </Switch>
       </HashRouter >
     </Provider>
