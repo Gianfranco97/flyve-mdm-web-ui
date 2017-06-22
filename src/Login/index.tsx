@@ -72,13 +72,12 @@ export default class Login extends React.Component<any, any> {
                                     LOGIN
                                 </button>
                             </form>
-                            
                         </div>
                     </div>
                 </div>
-                <span className="credentials">
-                    A solution powered by &nbsp; <img src="img/logo-teclib-blanc-1-2.png" />
-                </span> 
+                    <span className="credentials">
+                        A solution powered by &nbsp; <img src="img/logo-teclib-blanc-1-2.png" />
+                    </span>
             </div>
             
         )

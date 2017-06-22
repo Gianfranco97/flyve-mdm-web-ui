@@ -20,3 +20,6 @@ form input {
 .color-alert {
   background-color: #ec2730;
 }
+html {
+    overflow: auto;
+}

@@ -1,5 +1,5 @@
 .credentials {
-    position: absolute;
+    position: fixed;
     bottom: 15px;
     right: 10px;
     color: #ffffff;
