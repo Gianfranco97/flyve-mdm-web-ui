@@ -16,6 +16,6 @@ export default (history, location?) => {
             }
         })
         .catch(function (error: object) {
-            history.push('/')
+            history.push('/login')
         })
 }

@@ -1,29 +1,21 @@
 import * as React from 'react'
-import Login from './Login'
-import ContactBook from './ContactBook'
-import ValidateAccount from './Login/ValidateAccount'
-import { HashRouter, Route, Switch } from 'react-router-dom'
-import './App.css'
+import Loading from './GenericComponents/Loading'
+import VerifyAccountActivation from './Utils/VerifyAccountActivation'
 
-import { Provider } from 'react-redux'
-import { createStore } from 'redux'
+export default class App extends React.Component<any, any> {
 
-import Reducers from './reducers'
+    static propTypes = {
+        history: React.PropTypes.object.isRequired
+    }
 
-const store = createStore(Reducers)
+    constructor (props) {
+        super(props)
+        document.body.className = 'color-white'
+        console.log(this.props.history)
+        VerifyAccountActivation(this.props.history, 'contactbook')
+    }
 
-function App() {
-  return (
-    <Provider store={store}>
-      <HashRouter>
-        <Switch>
-          <Route exact path="/" component={Login} />
-          <Route path="/contactbook" component={ContactBook} />
-          <Route path="/validateaccount" component={ValidateAccount} />
-        </Switch>
-      </HashRouter >
-    </Provider>
-  )
+    render () {
+        return <Loading />
+    }
 }
-
-export default App
