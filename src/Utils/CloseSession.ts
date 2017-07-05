@@ -1,17 +1,3 @@
-import ChangeSessionToken from './ChangeSessionToken'
-import axios from 'axios'
-
-export default (history) => {
-    axios({
-        method: 'get',
-        url: 'https://dev.flyve.org/glpi/apirest.php/killSession/'
-    })
-        .then((response) => {
-            console.log(history)
-            ChangeSessionToken('')
-            history.push('/')
-        })
-        .catch(function (error: object) {
-            console.log(error)
-        })
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:7ba00e955b924defb5a94cc7690b53c9fd35d3ef53904d180db0ecd0f7d81625
+size 444

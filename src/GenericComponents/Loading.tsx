@@ -1,26 +1,3 @@
-import * as React from 'react'
-import './Loading.css'
-
-export default function Loading() {
-    return (
-        <div className="loading"> 
-            <div className="vuload">
-                <div className="vuitems" id="vuitems_1">
-                    <div className="comp"/>
-                </div>
-                <div className="vuitems" id="vuitems_2">
-                    <div className="comp"/>
-                </div>
-                <div className="vuitems" id="vuitems_3">
-                    <div className="comp"/>
-                </div>
-                <div className="vuitems" id="vuitems_4">
-                    <div className="comp"/>
-                </div>
-                <div className="vuitems" id="vuitems_5">
-                    <div className="comp"/>
-                </div>
-            </div>
-        </div>
-    )
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:635400536557d85998792509653c3103f3dc634357503f13391df2adfd8a159c
+size 1110

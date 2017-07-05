@@ -1,29 +1,3 @@
-import * as React from 'react'
-import * as ReactDOM from 'react-dom'
-import App from './App'
-import Login from './Login'
-import ContactBook from './ContactBook'
-import ValidateAccount from './Login/ValidateAccount'
-import { HashRouter, Route, Switch } from 'react-router-dom'
-import './App.css'
-
-import { Provider } from 'react-redux'
-import { createStore } from 'redux'
-
-import Reducers from './reducers'
-
-const store = createStore(Reducers)
-
-ReactDOM.render(
-  <Provider store={store}>
-      <HashRouter>
-        <Switch>
-          <Route exact path="/" component={App} />
-          <Route path="/login" component={Login} />
-          <Route path="/contactbook" component={ContactBook} />
-          <Route path="/validateaccount" component={ValidateAccount} />
-        </Switch>
-      </HashRouter >
-    </Provider>,
-  document.getElementById('app') as HTMLElement
-)
+version https://git-lfs.github.com/spec/v1
+oid sha256:44bab6fb6f3f6de300cfeabb8658f507bec509224ba031e09a276f41491ef111
+size 883

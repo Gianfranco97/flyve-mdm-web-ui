@@ -67,14 +67,14 @@
     width: 32px;
     height: 32px;
     padding: 0;
-    background-color: rgb(1, 121, 216);
+    background-color: #158784;
     color: white;
     text-align: center;
     line-height: 32px;
 }
 
 .peopleToolBar .win-toolbar-actionarea {
-    background-color: white;
+    background-color: #F2F2F2;
 }
 
 /*
@@ -85,6 +85,7 @@
     box-sizing: border-box;
     padding-left: 10px;
     padding-right: 10px;
+    overflow: auto;
 }
 
 #app .profilePane .profileHeader {
@@ -178,4 +179,7 @@
 
 .profileContent .mapIcon::before {
     content: "\E139";
+}
+.firstname {
+    font-size: 1.2rem;
 }
